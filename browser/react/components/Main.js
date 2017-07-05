@@ -4,7 +4,7 @@ import AllAlbums from './AllAlbums';
 import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
 import Player from './Player';
-import {HashRouter, Router} from 'react-router-dom';
+import {HashRouter, Route} from 'react-router-dom';
 
 export default class Main extends Component {
 
@@ -45,7 +45,10 @@ export default class Main extends Component {
           <Sidebar deselectAlbum={this.deselectAlbum} />
         </div>
         <HashRouter>
-          <div className="col-xs-10"></div>
+          <div className="col-xs-10">
+            <Route exact path='/' component={AllAlbums}/>
+            <Route path='/albums' component={AllAlbums} />
+          </div>
         </HashRouter>
         <Player />
       </div>
