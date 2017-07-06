@@ -27,13 +27,12 @@ export default class SingleAlbum extends Component {
     //console.log(this.props.match.params)
 
     const album = this.state.selectedAlbum;
-
     return (
       <div className="album">
         <div>
           <h3>{ album.name }
             <span>&nbsp;</span>
-            <a href={"mailto:allTheCoolKids@example.com?subject=Cool%20New%20Tunes&amp;&body=Check%20out%20this%20album!%20" + album.name}>
+            <a href={"mailto:allTheCoolKids@example.com?subject=Cool%20New%20Tunes&amp;&body=Check%20out%20this%20album!%20" + album.name + " by " + ((album.artists) ? album.artists[0].name : "") }>
             <button className="btn btn-default btn-xs">
               <span className="glyphicon glyphicon-share"></span>
             </button>
