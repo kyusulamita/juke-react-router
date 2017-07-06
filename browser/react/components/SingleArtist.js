@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import axios from 'axios';
 import Albums from '../components/AllAlbums';
 import Songs from '../components/Songs';
@@ -40,15 +40,36 @@ export default class SingleArtist extends Component {
   }
 
   render () {
-    const artist = this.state.selectedArtist
+    const artist = this.state.selectedArtist;
+    const artistAlbums = this.state.artistAlbums;
+    const artistSongs = this.state.artistSongs;
+
     return (
       <div>
         <h3>{artist.name}</h3>
         <ul className="nav nav-tabs">
-          <li><Link to="TODO">ALBUMS</Link></li>
+          <li><Link to="/artists/:artistId">ALBUMS</Link></li>
           <li><Link to="TODO">SONGS</Link></li>
         </ul>
+      <Route path="/artists/:artistId" render={
+        (routeProps) => <AllAlbums match={routeProps.match} /> } />
       </div>
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
