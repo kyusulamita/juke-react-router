@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 
-export default class AllAlbums extends Component {
-
-  render () {
-    const albums = this.state.albums;
-    const selectAlbum = this.props.selectAlbum;
-    console.log(this.props);
+const AllAlbums = (props) => {
+    const albums = props.albums;
     return (
       <div>
         <h3>Albums</h3>
@@ -30,5 +25,6 @@ export default class AllAlbums extends Component {
         </div>
       </div>
     );
-  }
 }
+
+export default AllAlbums;

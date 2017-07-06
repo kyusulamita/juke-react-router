@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Albums from '../components/AllAlbums';
 import Songs from '../components/Songs';
 import Bluebird from 'bluebird';
+import AllAlbums from './AllAlbums'
+
 
 export default class SingleArtist extends Component {
 
@@ -37,14 +40,14 @@ export default class SingleArtist extends Component {
   }
 
   render () {
-    //console.log(this.props.match.params)
-
     const artist = this.state.selectedArtist
     return (
       <div>
         <h3>{artist.name}</h3>
-        <Albums albums={this.state.artistAlbums} />
-        <Songs songs={this.state.artistSongs} />
+        <ul className="nav nav-tabs">
+          <li><Link to="TODO">ALBUMS</Link></li>
+          <li><Link to="TODO">SONGS</Link></li>
+        </ul>
       </div>
     );
   }

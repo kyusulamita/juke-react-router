@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import AllAlbums from './AllAlbums';
 
-export default class AllAlbums extends Component {
+export default class StatefulAlbums extends Component {
 
   constructor () {
     super();
@@ -22,10 +22,8 @@ export default class AllAlbums extends Component {
 
   render () {
     const albums = this.state.albums;
-    const selectAlbum = this.props.selectAlbum;
-    console.log(this.props);
     return (
-      <AllAlbums />
+      <AllAlbums albums={albums}/>
     );
   }
 }
