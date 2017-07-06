@@ -9,6 +9,8 @@ export default class SingleAlbum extends Component {
     this.state = {
       selectedAlbum: {}
     };
+
+
   }
 
   componentDidMount () {
@@ -31,11 +33,13 @@ export default class SingleAlbum extends Component {
         <div>
           <h3>{ album.name }
             <span>&nbsp;</span>
+            <a href={"mailto:allTheCoolKids@example.com?subject=Cool%20New%20Tunes&amp;&body=Check%20out%20this%20album!%20" + album.name}>
             <button className="btn btn-default btn-xs">
               <span className="glyphicon glyphicon-share"></span>
             </button>
+            </a>
           </h3>
-          
+
           <img src={ album.imageUrl } className="img-thumbnail" />
         </div>
         <Songs songs={album.songs} />
