@@ -44,32 +44,24 @@ export default class SingleArtist extends Component {
     const artistAlbums = this.state.artistAlbums;
     const artistSongs = this.state.artistSongs;
 
+
     return (
       <div>
         <h3>{artist.name}</h3>
         <ul className="nav nav-tabs">
-          <li><Link to="/artists/:artistId">ALBUMS</Link></li>
-          <li><Link to="TODO">SONGS</Link></li>
+          <li><Link to={`/artists/${artist.id}/albums`}>ALBUMS</Link></li>
+          <li><Link to={`/artists/${artist.id}/songs`}>SONGS</Link></li>
         </ul>
-      <Route path="/artists/:artistId" render={
-        (routeProps) => <AllAlbums match={routeProps.match} /> } />
+      <Route path="/artists/:artistId/albums" render={
+        (routeProps) =>{
+          console.log(routeProps);
+          return <AllAlbums match={routeProps.match} albums={this.state.artistAlbums}/> }} />
+      <Route path='/artists/:artistId/songs' render ={
+        (routeProps) => {
+          return <Songs match={routeProps.match} songs={this.state.artistSongs} />
+        }
+      } />
       </div>
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
